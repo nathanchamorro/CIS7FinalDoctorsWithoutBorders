@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string>
+#include <ctime> // Used for the randomizer function.
+#include <cstdlib>
+
+using namespace std;
+
+int main() {
+  // Define variables, which are integers.
+    int lan;
+    int specializedarea;
+
+  // Welcome Message.
+    cout << "Hello! Welcome to the Doctors Without Borders program! This program will match you to a country based on your specialization and the language you are fluent in. Please choose a language you are fluent in, and input the number cooresponding to it." << endl;
+    cout << endl;
+    cout << "1. English\n2. Spanish \n3. Tagalog \n4. French \n5. German \n ";
+   // User inputs language. 
+    cin  >> lan;
+    // Switch case depends on user input (lan)
+    switch(lan){
+        case 1:
+        cout << "You chose English" << endl;
+        break;
+        
+        case 2:
+        cout << "You chose Spanish" << endl;
+        break;
+
+        case 3:
+        cout << "You chose Tagalog."<< endl;
+        break;
+        
+        case 4:
+        cout << "You chose French." << endl;
+        break;
+
+      case 5:
+        cout << "You chose German." << endl;
+        break;
+    }
+
+    // Depending on fluent language chosen, five sets of arrays are defined, one for each language.
+    string country[5][6] = {{"United States", "Canada", "United Kingdom", "Philippines", "Thailand"},
+    {"Mexico", "Argentina", "Nicaragua", "Costa Rica", "Guatemala"},
+    {"the Filipines", "the Filipines", "the Filipines", "the Filipines", "the Filipines"},
+    {"France", "Belgium", "Switzerland", "Cameroon", "Haiti"},
+  {"Austria", "Luxembourg", "Denmark", "Germany", "Liechtenstein"}};
+
+    // Asks specialized area. Not significant in this program.
+    cout << "Please choose your specialized area." << endl;
+    cout << "1. Allergy and Immunology" << endl;
+    cout << "2. Anesthesiology" << endl;
+    cout << "3. Emergency Medicine" << endl;
+    cout << "4. Endocrinology" << endl;
+    cout << "5. Critical Care" << endl;
+
+    // User input for their specialized area.
+    cin  >> specializedarea;
+
+    // Switch case depending on their choice in their specialized area.
+    switch(specializedarea){
+
+        case 1:
+        cout << "You chose Allergy and Immunology.\n";
+        break;
+        
+        case 2:
+        cout << "You chose Anesthesiology.\n";
+        break;
+    
+        case 3:
+        cout << "You chose Emergency Medicine. \n";
+        break;
+              
+        case 4:
+        cout << "You chose Endocrinology. \n";
+        break;
+
+        case 5:
+        cout << "You chose Critical Care. \n";
+        break;
+    
+    }
+
+// Randomize number function that works within the area of the language chosen.
+    srand(time(0));
+    int random = (rand() % 5);
+
+// Output at the end that gives the result of their country based on their language. -1 Due to arrays starting at 0.
+    cout << "You have been assigned to " << country[lan-1][random] << "." << endl;
+// Explanation on the probability of each choice given.
+    cout << "The probability of choosing a specific country is dependent on the language you are fluent in. If you speak English, the probability is 1/5, or 20%. If you choose Spanish, French, or German, the probability is 1/3, or 33.3%. If you choose Tagalog, you will 100% be matched to the Philipines (100%)." << endl;
+}
+
+// Program by Nathan Chamorro
+// CIS-7
